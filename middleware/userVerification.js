@@ -4,7 +4,7 @@ const { User }= require("../models/model");
 
 const userVerification = async (req, res, next) => {
     try {
-        const token = req.cookies.token;
+        const token = req.cookie.token;
 
         console.log(token);
 
