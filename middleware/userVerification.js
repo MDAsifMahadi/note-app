@@ -5,7 +5,9 @@ const { User }= require("../models/model");
 const userVerification = async (req, res, next) => {
     try {
         const token = req.cookies.token;
-        
+
+        console.log(token);
+
         if(!token) {
             res.status(303).json({
                 message  : "please login"
