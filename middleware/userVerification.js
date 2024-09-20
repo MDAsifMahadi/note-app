@@ -11,7 +11,7 @@ const userVerification = async (req, res, next) => {
                 message  : "please login"
             });
         }else {
-            const tokenDecode = await jwt.decode(token, process.env.secteateKey);
+            const tokenDecode = await jwt.decode(token, "for my fast web project after learn node js");
             const user = await User.findById(tokenDecode.userID);
             if(!user) {
                 res.status(404).json({message : "User not found !"})
