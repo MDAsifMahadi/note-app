@@ -55,7 +55,7 @@ const login = async (req, res) => {
             }else{
                 const token = await jwt.sign({userID : user._id}, process.env.secteateKey, {expiresIn : "3d"});
                 res.cookie("token", token, {
-                    httpOnly : true,
+                    httpOnly : false,
                     secure : false,
                     maxAge : 3 * 24 * 3600 * 1000
                 })

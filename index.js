@@ -1,6 +1,7 @@
 const app = require("./app");
-const dbConnect = require("./config/db"); 
-const PORT = 4000;
+const dbConnect = require("./config/db");
+const config = require("./config/config");
+const PORT = config.app;
 
 
 
