@@ -54,12 +54,7 @@ const login = async (req, res) => {
                 res.status(422).json({error : "Your password is wrong."});
             }else{
                 const token = await jwt.sign({userID : user._id}, process.env.secteateKey, {expiresIn : "3d"});
-                res.cookie("token", token, {
-                    httpOnly : false,
-                    secure : false,
-                    maxAge : 3 * 24 * 3600 * 1000
-                })
-                res.status(200).json({message : "Logein succes", user});
+                res.status(200).json({token,message : "Logein succes", user});
             }
         }
     } catch (error) {
@@ -73,7 +68,6 @@ const login = async (req, res) => {
 
 const LogOut = (req, res) => {
     try {
-        res.clearCookie("token");
         res.status(200).json({message : "Logout succes"});
     } catch (error) {
         console.log(error.message);

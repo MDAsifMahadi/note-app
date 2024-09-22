@@ -1,11 +1,10 @@
 const jwt = require("jsonwebtoken");
-require("dotenv").config();
+
 const { User }= require("../models/model");
 
 const userVerification = async (req, res, next) => {
     try {
-        const token = req.cookies.token;
-        
+        const token = req.body.token;
         if(!token) {
             res.status(303).json({
                 message  : "please login"

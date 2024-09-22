@@ -7,12 +7,12 @@ router.post("/create-user/", register);
 router.post("/login", login);
 router.post("/logout", LogOut);
 
-router.post("/create-note",userVerification, createNote);
-router.put("/update-note/:id",userVerification, updateNote);
+router.post("/create-note",userVerification, createNote); //ok
+router.put("/update-note/:id",userVerification, updateNote); // ok
 
-router.delete("/delete-note/:id", userVerification, deleteNote);
+router.put("/delete-note/:id", userVerification, deleteNote); // ok
 
-router.get("/get-notes", userVerification, getNotes);
+router.post("/get-notes", userVerification, getNotes);// ok
 
 
 
